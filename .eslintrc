@@ -1,0 +1,70 @@
+{
+  "extends": ["airbnb", "plugin:prettier/recommended"],
+
+  "plugins": ["prettier"],
+
+  "rules": {
+    "prettier/prettier": "error",
+    "no-inner-declarations": "error",
+    "default-case": "error",
+    "block-scoped-var": "error",
+    "no-console": "warn",
+    "no-undef": "error",
+    "camelcase": [2, { "properties": "always" }],
+    "max-nested-callbacks": [2, { "max": 3 }],
+    "new-cap": "error",
+    "no-lonely-if": "error",
+    "no-mixed-operators": "error",
+    "no-unneeded-ternary": "error",
+    "operator-assignment": [2, "always"],
+    "no-unused-vars": "error",
+    "no-cond-assign": "error",
+    "no-extra-semi": "error",
+    "no-empty": "error",
+    "no-constant-condition": "error",
+    "no-await-in-loop": "error",
+    "no-template-curly-in-string": "error",
+    "no-unreachable": "error",
+    "no-case-declarations": "error",
+    "no-empty-function": "error",
+    "no-eval": "error",
+    "no-self-compare": "error",
+    "no-useless-concat": "error",
+    "strict": ["error", "global"],
+    "newline-per-chained-call": "error",
+    "no-plusplus": "error",
+    "no-multiple-empty-lines": ["error", { "max": 1 }],
+    "prefer-destructuring": [
+      "error",
+      {
+        "array": true,
+        "object": true
+      },
+      {
+        "enforceForRenamedProperties": false
+      }
+    ],
+    "prefer-const": "error",
+    "prefer-template": "error",
+    "no-duplicate-imports": "error",
+    "no-confusing-arrow": "error",
+    "no-const-assign": "error",
+    "curly": "error"
+  },
+
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 2017
+  },
+  "settings": {
+    "react": {
+      "version": "99.99.9999999"
+    }
+  },
+  "env": {
+    "es6": true,
+    "node": true,
+    "commonjs": true,
+    "browser": true
+  }
+}
