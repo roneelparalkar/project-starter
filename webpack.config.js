@@ -2,22 +2,21 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
+const WebpackAutoInject = require('webpack-auto-inject-version');
 
 const destinationFolder = 'dist';
 
 module.exports = {
-  entry: {
-    app: './src/assets/js/index.js',
-  },
-  output: {
-    path: path.resolve(__dirname, destinationFolder),
-    filename: 'bundle.js',
+  performance: {
+    maxEntryPointSize: 9000000,
+    maxAssetSize: 9000000,
   },
   devServer: {
     port: 9000,
     disableHostCheck: true,
   },
+  entry: './src/assets/js/index.js',
   module: {
     rules: [
       {
@@ -43,6 +42,11 @@ module.exports = {
       },
     ],
   },
+  output: {
+    path: path.resolve(__dirname, destinationFolder),
+    filename: '[name].js',
+    chunkFileName: '[name].js',
+  },
   plugins: [
     new HtmlWebpackPlugin({
       inject: true,
@@ -59,6 +63,12 @@ module.exports = {
           },
         },
       ],
+    }),
+    new ESLintPlugin(),
+    new WebpackAutoInject({
+      components: {
+        AutoIncreaseVersion: false,
+      },
     }),
   ],
 };
